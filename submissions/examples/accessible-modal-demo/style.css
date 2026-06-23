@@ -1,0 +1,8 @@
+* { box-sizing: border-box; font-family: sans-serif; }
+body { margin: 0; padding: 2rem; background: #f0f2f5; color: #333; }
+.demo-wrapper { max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+h1 { color: #2c3e50; }
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+     .modal-overlay.active { opacity: 1; pointer-events: auto; }
+     .modal-content { background: white; padding: 2rem; border-radius: 8px; color: black; min-width: 300px; }
+     .trigger, .close { padding: 0.5rem 1rem; border: none; background: #3498db; color: white; border-radius: 4px; cursor: pointer; }
