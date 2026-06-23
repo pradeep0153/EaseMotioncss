@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  let focusStack = [];
   let previousFocusedElement = null;
 
   function checkModal() {
@@ -19,14 +20,14 @@
         if (overlay) {
           body.style.overflow = 'hidden';
 
-          previousFocusedElement = document.activeElement;
+          focusStack.push(document.activeElement);
 
           overlay.classList.add('is-active');
 
           const modal = overlay.querySelector('.ease-modal');
           if (modal) {
             if (!overlay.classList.contains('is-active')) {
-              previousFocusedElement = document.activeElement;
+              focusStack.push(document.activeElement);
             }
 
             modal.setAttribute('tabindex', '-1');
@@ -42,12 +43,9 @@
     // If no active modal is found
     body.style.overflow = '';
 
-    if (
-      previousFocusedElement &&
-      typeof previousFocusedElement.focus === 'function'
-    ) {
-      previousFocusedElement.focus();
-      previousFocusedElement = null;
+    let toFocus = focusStack.pop();
+    if (toFocus && typeof toFocus.focus === 'function') {
+      toFocus.focus();
     }
   }
 
@@ -128,3 +126,4 @@
     checkModal();
   }
 })();
+
