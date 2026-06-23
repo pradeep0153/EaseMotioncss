@@ -351,7 +351,7 @@
   }
 
 /* ── Issue #10869: ease-input `[type="file"]` ── */
-  .ease-input:focus {
+  .ease-input[type="file"]:focus {
     border-color: #6c63ff;
     box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
   }
