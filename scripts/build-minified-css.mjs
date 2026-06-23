@@ -138,7 +138,7 @@ function minifyCss(css) {
     .replace(/\r\n/g, "\n")
     .replace(/\n+/g, "\n")
     .replace(/\s+/g, " ")
-    .replace(/\s*([{}:;,>])\s*/g, "$1")
+    .replace(/\s*([{}>])\s*/g, "$1")
     .replace(/;}/g, "}")
     .replace(/\)\s+\{/g, "){")
     .trim();
@@ -178,3 +178,4 @@ build().catch((error) => {
   console.error('Build failed:', error);
   process.exitCode = 1;
 });
+
