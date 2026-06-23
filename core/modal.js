@@ -35,7 +35,7 @@
           return;
         }
       } catch (e) {
-        window.location.hash = ''; // Clear invalid hash
+        history.replaceState(null, '', window.location.pathname + window.location.search); // Clear invalid hash
       }
     }
 
@@ -65,8 +65,9 @@
       if (!overlay || !overlay.classList.contains('is-active')) return;
 
       if (e.target === overlay) {
-        window.location.hash = ''; // Clear hash = close modal properly
+        history.replaceState(null, '', window.location.pathname + window.location.search); // Clear hash = close modal properly
         e.preventDefault();
+        checkModal(); // manually trigger close
       }
     } catch (e) {
       // Invalid selector, ignore
@@ -85,7 +86,8 @@
 
       // Escape key to close
       if (e.key === 'Escape') {
-        window.location.hash = ''; // This will trigger hashchange and close the modal
+        history.replaceState(null, '', window.location.pathname + window.location.search); // Clear hash
+        checkModal(); // manually trigger close
         return;
       }
 
@@ -95,7 +97,6 @@
           'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
         );
         if (focusableElements.length === 0) {
-          e.preventDefault();
           return;
         }
 
