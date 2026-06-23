@@ -1,0 +1,15 @@
+* { box-sizing: border-box; font-family: sans-serif; }
+body { margin: 0; padding: 2rem; background: #f0f2f5; color: #333; }
+.demo-wrapper { max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+h1 { color: #2c3e50; }
+.complex-box {
+      width: clamp(200px, 50vw, 800px);
+      background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,121,1) 35%, rgba(0,212,255,1) 100%);
+      padding: calc(1rem + 2vw);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
