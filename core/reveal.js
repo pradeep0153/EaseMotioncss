@@ -11,7 +11,15 @@
   }
 
   // Check if user prefers reduced motion
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener('change', (e) => {
+      if (e.matches) {
+        document.querySelectorAll('.' + revealClass).forEach(el => el.classList.add(activeClass));
+      }
+    });
+  }
+  const prefersReducedMotion = mediaQuery.matches;
   if (prefersReducedMotion) {
     var readyReduced = function () {
       var els = document.querySelectorAll('.' + revealClass);
@@ -74,3 +82,4 @@
     }
   }
 })();
+
